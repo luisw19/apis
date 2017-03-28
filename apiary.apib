@@ -1,0 +1,209 @@
+FORMAT: 1A
+HOST: http://orders.apiblueprint.org/
+
+# Orders Business API
+
+This is an Orders API. It will allow the search, read, creation and deletetion of orders
+
+## Orders Collection [/orders]
+
+### List All Orders [GET]
+
+Use this resource to list all of the available APIs. It is possible to filter by date range by using the "date_from" and "date_to" parameters and also by customer by using the "customer" parameter
++ Response 200 (application/json)
+
+        {
+            "error": false,
+            "message": [
+            {
+                "_id": "57bc09c33abd6e12007c9dcb",
+                "__v": 0,
+                "order": 
+                {
+                    "order_id": "ld50ay5tu",
+                    "total_price": 50,
+                    "line_items": [
+                     {
+                        "product_id": "1071823172",
+                        "product_name": "Billy Table White",
+                        "quantity": 1,
+                        "price": 50,
+                        "currency": "EUR",
+                        "grams": 8000,
+                        "sku": "BILLY2009WHITE",
+                        "_id": "57bc09c33abd6e12007c9dcc"
+                    }],
+                    "address": [
+                    {
+                        "name": "billing",
+                        "city": "Cambridge",
+                        "county": "Cambridgeshire",
+                        "postcode": "CB4 4SS",
+                        "country": "Great Britain",
+                        "_id": "57bc09c33abd6e12007c9dce"
+                    },
+                    {
+                        "name": "shipping",
+                        "city": "Cambridge",
+                        "county": "Cambridgeshire",
+                        "postcode": "CB4 4SS",
+                        "country": "Great Britain",
+                        "_id": "57bc09c33abd6e12007c9dcd"
+                }],
+                "customer": {
+                    "customer_id": "76422323213",
+                    "first_name": "Paul",
+                    "last_name": "Norman",
+                    "phone": "+44 (0) 5555-555-555",
+                    "email": "paul.norman@example.com"
+                },
+                "currency": "EUR",
+                "updated_at": "2016-08-23T08:30:59.133Z",
+                "created_at": "2016-08-23T08:30:59.133Z",
+                "status": "CREATED"
+              }
+            }
+          ]
+        }
+
+### Create a New Order [POST]
+
+Create an order using this action. It takes a JSON
+object containing an order and a collection of answers.
+
++ Request (application/json)
+
+        {
+          "order": {
+            "total_price": 50,
+            "currency": "EUR",
+            "customer": {
+               "customer_id": "76422323213",
+               "first_name": "Paul",
+               "last_name": "Norman",
+               "phone": "+44 (0) 5555-555-555",
+               "email": "paul.norman@example.com"
+            },
+            "address": [
+                {
+                "name": "billing",
+                "city": "Cambridge",
+                "county": "Cambridgeshire",
+                "postcode": "CB4 4SS",
+                "country": "Great Britain"
+                },
+                {
+                "name": "shipping",
+                "city": "Cambridge",
+                "county": "Cambridgeshire",
+                "postcode": "CB4 4SS",
+                "country": "Great Britain"
+                }
+            ],
+            "line_items": [{
+                "product_id": "1071823172",
+                "product_name": "Billy Table White",
+                "quantity": 1,
+                "price": 50,
+                "currency": "EUR",
+                "grams": 8000,
+                "sku": "BILLY2009WHITE"
+             }]
+          }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /orders/
+
+    + Body
+    
+            {
+            "error": false,
+            "message": "Created order: xxxx"
+            }
+
+## Order [/orders/{order_id}]
+
+### Get Order Details [GET]
+
+Update an existing order passing the relevant parameters
+
++ Parameters
+    + order_id (number) - ID of the order for which to get the details
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /orders/
+
+    + Body
+    
+            {
+            "error": false,
+            "message": "Created order: xxxx"
+            }
+
+### Update Order [PUT]
+
+Update an existing order passing the relevant parameters
+
++ Parameters
+    + order_id (number) - ID of the order to be updated
+
++ Request (application/json)
+
+        {
+          "order": {
+            "total_price": 50,
+            "currency": "EUR",
+            "customer": {
+               "customer_id": "123456",
+               "first_name": "Paul",
+               "last_name": "Norman",
+               "phone": "+44 (0) 5555-555-555",
+               "email": "paul.norman@example.com"
+            },
+            "address": [
+                {
+                "name": "billing",
+                "city": "Cambridge",
+                "county": "Cambridgeshire",
+                "postcode": "CB4 4SS",
+                "country": "Great Britain"
+                },
+                {
+                "name": "shipping",
+                "city": "Cambridge",
+                "county": "Cambridgeshire",
+                "postcode": "CB4 4SS",
+                "country": "Great Britain"
+                }
+            ],
+            "line_items": [{
+                "product_id": "1071823172",
+                "product_name": "Billy Table White",
+                "quantity": 1,
+                "price": 50,
+                "currency": "EUR",
+                "grams": 8000,
+                "sku": "BILLY2009WHITE"
+             }]
+          }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /orders/
+
+    + Body
+
+            {
+            "error": false,
+            "message": "Created order: xxxx"
+            }
