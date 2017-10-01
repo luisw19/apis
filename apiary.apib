@@ -14,55 +14,56 @@ Use this resource to list all of the available APIs. It is possible to filter by
         {
             "error": false,
             "message": [
-            {
-                "_id": "57bc09c33abd6e12007c9dcb",
-                "__v": 0,
-                "order": 
                 {
-                    "order_id": "ld50ay5tu",
-                    "total_price": 50,
-                    "line_items": [
-                     {
-                        "product_id": "1071823172",
-                        "product_name": "Billy Table White",
-                        "quantity": 1,
-                        "price": 50,
+                    "_id": "59d0966c2d57fd00125548a6",
+                    "__v": 0,
+                    "order": {
+                        "order_id": "dp59cii7t",
+                        "total_price": 50,
+                        "line_items": [
+                            {
+                                "product_id": "1071823172",
+                                "product_name": "Billy Table White",
+                                "quantity": 1,
+                                "price": 50,
+                                "currency": "EUR",
+                                "grams": 8000,
+                                "sku": "BILLY2009WHITE",
+                                "_id": "59d0966c2d57fd00125548a7"
+                            }
+                        ],
+                        "address": [
+                            {
+                                "name": "billing",
+                                "city": "Cambridge",
+                                "county": "Cambridgeshire",
+                                "postcode": "CB4 4SS",
+                                "country": "Great Britain",
+                                "_id": "59d0966c2d57fd00125548a9"
+                            },
+                            {
+                                "name": "shipping",
+                                "city": "Cambridge",
+                                "county": "Cambridgeshire",
+                                "postcode": "CB4 4SS",
+                                "country": "Great Britain",
+                                "_id": "59d0966c2d57fd00125548a8"
+                            }
+                        ],
+                        "customer": {
+                            "customer_id": "76422323213",
+                            "first_name": "Paul",
+                            "last_name": "Norman",
+                            "phone": "+44 (0) 5555-555-555",
+                            "email": "paul.norman@example.com"
+                        },
                         "currency": "EUR",
-                        "grams": 8000,
-                        "sku": "BILLY2009WHITE",
-                        "_id": "57bc09c33abd6e12007c9dcc"
-                    }],
-                    "address": [
-                    {
-                        "name": "billing",
-                        "city": "Cambridge",
-                        "county": "Cambridgeshire",
-                        "postcode": "CB4 4SS",
-                        "country": "Great Britain",
-                        "_id": "57bc09c33abd6e12007c9dce"
-                    },
-                    {
-                        "name": "shipping",
-                        "city": "Cambridge",
-                        "county": "Cambridgeshire",
-                        "postcode": "CB4 4SS",
-                        "country": "Great Britain",
-                        "_id": "57bc09c33abd6e12007c9dcd"
-                }],
-                "customer": {
-                    "customer_id": "76422323213",
-                    "first_name": "Paul",
-                    "last_name": "Norman",
-                    "phone": "+44 (0) 5555-555-555",
-                    "email": "paul.norman@example.com"
-                },
-                "currency": "EUR",
-                "updated_at": "2016-08-23T08:30:59.133Z",
-                "created_at": "2016-08-23T08:30:59.133Z",
-                "status": "CREATED"
-              }
-            }
-          ]
+                        "updated_at": "2017-10-01T07:17:00.442Z",
+                        "created_at": "2017-10-01T07:17:00.442Z",
+                        "status": "CREATED"
+                    }
+                }
+            ]
         }
 
 ### Create a New Order [POST]
@@ -134,7 +135,7 @@ Update an existing order passing the relevant parameters
     + order_id: 1 (number, optional) - ID of the order for which to get the details
         + Default: 123
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Headers
 
@@ -196,7 +197,7 @@ Update an existing order passing the relevant parameters
           }
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Headers
 
